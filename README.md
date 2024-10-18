@@ -5,16 +5,11 @@
 `npm i`
 
 > [!NOTE]
-> Useful information that users should know, even when skimming content.
+> Run with watch changes
 
-> [!TIP]
-> Helpful advice for doing things better or more easily.
+`npm run dev`
 
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
+> [!NOTE]
+> Run prod
 
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
-
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
+`npm run start`
