@@ -1,5 +1,10 @@
-import { model, Schema } from "mongoose";
+import http from 'http';
+import api from './api.js';
 
-const aSchema = new Schema();
+const PORT = 8000;
 
-export default model("A", aSchema);
+const server = http.createServer(api);
+
+server.listen(PORT, () => {
+  console.log('Server running', PORT);
+});
