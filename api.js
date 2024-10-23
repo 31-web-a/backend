@@ -1,4 +1,6 @@
 import express from 'express';
+import authRouter from './routes/authRoutes.js';
+import { errorHandler } from './utils/errorHandler.js';
 
 const api = express();
 
@@ -10,10 +12,8 @@ api.get('/', (_req, res) => {
   });
 });
 
-api.use((_err, _req, res, _next) => {
-  return res.status(500).json({
-    msg: 'Error no conocido',
-  });
-});
+api.use('/auth', authRouter);
+
+api.use(errorHandler);
 
 export default api;

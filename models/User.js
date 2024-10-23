@@ -14,7 +14,11 @@ const userSchema = new Schema({
     type: Date,
     required: true,
   },
-  email: { type: String, required: true },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   password: { type: String, required: true },
   weight: {
     type: Number,
@@ -26,6 +30,12 @@ const userSchema = new Schema({
   },
   goal: { type: String, required: true },
   level: { type: String },
+  role: {
+    type: String,
+    default: 'client',
+    enum: ['client', 'coach'],
+    required: true,
+  },
 });
 
 export default model('User', userSchema);

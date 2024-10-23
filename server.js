@@ -1,5 +1,6 @@
 import http from 'http';
 import api from './api.js';
+import './config/database.js';
 
 const PORT = 8000;
 
