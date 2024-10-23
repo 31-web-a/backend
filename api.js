@@ -8,7 +8,7 @@ api.use(express.json());
 
 api.get('/', (_req, res) => {
   return res.json({
-    msg: 'API Live',
+    msg: 'API Live v5',
   });
 });
 

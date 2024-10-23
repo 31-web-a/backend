@@ -1,5 +1,6 @@
 import User from '../models/User.js';
 import bcrypt from 'bcryptjs';
+import jwt from 'jwt-simple';
 import { controller } from '../utils/errorHandler.js';
 
 /**
@@ -30,6 +31,41 @@ const register = controller(async (req, res) => {
   });
 });
 
-const login = async (req, res) => {};
+const login = controller(async (req, res) => {
+  // buscar usuario con ese correo
+  const user = await User.findOne({
+    email: req.body.email,
+  });
+
+  //Si no encuentra usuario
+  if (!user) {
+    return res.status(404).json({ msg: 'User not found' });
+  }
+
+  //Comparar contraseña encriptada con la del req.body
+  const isPasswordEquals = await bcrypt.compare(
+    req.body.password,
+    user.password
+  );
+
+  //si la contraseña es incorrecta
+  if (!isPasswordEquals) {
+    return res.status(401).json({
+      msg: 'Invalid credentials',
+    });
+  }
+
+  //Crear token
+  const token = jwt.encode(
+    {
+      userId: user.id,
+    },
+    process.env.JWT_SECRET
+  );
+
+  return res.json({
+    token,
+  });
+});
 
 export { register, login };

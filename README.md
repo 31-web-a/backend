@@ -13,3 +13,9 @@
 > Run prod
 
 `npm run start`
+
+
+
+> [!NOTE]
+> Run with docker
+`docker-compose up -d`
