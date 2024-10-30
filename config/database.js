@@ -12,4 +12,4 @@ mongoose.connection.on('disconnected', () => {
 });
 
 // TODO: hacer un if para apuntar a mongodb o a localhost dependiendo del env en el que se ejecuta
-mongoose.connect('mongodb://mongo:27017');
+mongoose.connect('mongodb://localhost:27017');
