@@ -9,6 +9,7 @@ const goalRouter = Router();
 goalRouter
   .route('/')
   .post(authenticated, validateBody(createGoalSchema), createGoal);
+//TODO: Crear get goal
 // .get()
 // .put()
 
