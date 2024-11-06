@@ -1,8 +1,11 @@
 import globals from 'globals';
 import pluginJs from '@eslint/js';
+import pluginJest from 'eslint-plugin-jest';
 
 export default [
   {
+    // files: ['**/*.spec.js', '**/*.test.js'],
+    // plugins: { jest: pluginJest },
     languageOptions: { globals: globals.node },
     rules: {
       'no-unused-vars': [
@@ -17,4 +20,5 @@ export default [
     },
   },
   pluginJs.configs.recommended,
+  pluginJest.configs['flat/recommended'],
 ];
