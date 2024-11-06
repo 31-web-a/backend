@@ -4,9 +4,7 @@ import api from '../api.js';
 import mongoose from 'mongoose';
 
 beforeAll(async () => {
-  await mongoose.connect(
-    'mongodb://APP-USERNAME:APP-PASSWORD@localhost:27017/APP-DB'
-  );
+  await mongoose.connect('mongodb://user:password@localhost:27017/test');
 });
 
 afterAll(async () => {
