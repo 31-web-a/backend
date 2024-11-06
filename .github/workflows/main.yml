@@ -9,6 +9,17 @@ jobs:
   lint-and-test:
     runs-on: ubuntu-latest
 
+    services:
+      mongo:
+        image: mongo:latest
+        ports:
+         - 27017:27107
+        # options: >-
+        #   --health-cmd "mongosh --eval 'db.runCommand({ ping: 1 })'"
+        #   --health-interval 10s
+        #   --health-timeout 5s
+        #   --health-retries 5
+  
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v3
