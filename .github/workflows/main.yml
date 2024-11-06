@@ -2,8 +2,8 @@ name: CI Pipeline
 
 on:
   pull_request:
-    branches: 
-     - main
+    branches:
+      - main
 
 jobs:
   lint-and-test:
@@ -13,17 +13,17 @@ jobs:
       mongo:
         image: mongo:latest
         ports:
-         - 27017:27107
-        # options: >-
-        #   --health-cmd "mongosh --eval 'db.runCommand({ ping: 1 })'"
-        #   --health-interval 10s
-        #   --health-timeout 5s
-        #   --health-retries 5
-  
+          - 27017:27107
+        options: >-
+          --health-cmd "mongosh --eval 'db.runCommand({ ping: 1 })'"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v3
-        
+
       - name: Instalar node con npm
         uses: actions/setup-node@v3
         with:
