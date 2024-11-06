@@ -54,6 +54,4 @@ describe('API /auth', () => {
 
     expect(duplicatedResponse.statusCode).toBe(409);
   });
-
-  //   test('/auth/login');
 });
