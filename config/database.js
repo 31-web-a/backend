@@ -16,7 +16,5 @@ mongoose.connection.on('disconnected', () => {
 // TODO: hacer un if para apuntar a mongodb o a localhost dependiendo del env en el que se ejecuta
 
 const URI = process.env.MONGO_URI || 'mongodb://localhost:27017';
-// NODE_ENV === 'development' ? 'mongodb://localhost:27017' : process.env.MONGO_URI
-// 'mongodb://localhost:27017'
 
 mongoose.connect(URI);
